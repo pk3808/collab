@@ -7,9 +7,9 @@ export const Hero = () => {
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden pt-20">
       {/* Background Orbitals */}
       <div className="absolute inset-0 z-0 flex items-center justify-center opacity-20">
-        <div className="h-[800px] w-[800px] animate-[spin_60s_linear_infinite] rounded-full border border-zinc-800" />
-        <div className="absolute h-[600px] w-[600px] animate-[spin_40s_linear_infinite_reverse] rounded-full border border-zinc-800" />
-        <div className="absolute h-[400px] w-[400px] animate-[spin_20s_linear_infinite] rounded-full border border-zinc-800" />
+        <div className="h-[800px] w-[800px] animate-[spin_60s_linear_infinite] rounded-full border border-zinc-300 dark:border-zinc-800" />
+        <div className="absolute h-[600px] w-[600px] animate-[spin_40s_linear_infinite_reverse] rounded-full border border-zinc-300 dark:border-zinc-800" />
+        <div className="absolute h-[400px] w-[400px] animate-[spin_20s_linear_infinite] rounded-full border border-zinc-300 dark:border-zinc-800" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 text-center">
@@ -18,7 +18,7 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <span className="inline-block rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-1.5 text-sm font-medium text-purple-400">
+          <span className="inline-block rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-1.5 text-sm font-medium text-purple-600 dark:text-purple-400">
             ● 142 Lobbies Active Now
           </span>
           <h1 className="mt-8 text-6xl font-bold tracking-tighter sm:text-8xl">
@@ -27,12 +27,12 @@ export const Hero = () => {
               Creator Growth
             </span>
           </h1>
-          <p className="mx-auto mt-8 max-w-2xl text-xl text-zinc-400">
+          <p className="mx-auto mt-8 max-w-2xl text-xl text-zinc-600 dark:text-zinc-400">
             The ultimate exchange hub. Swap reviews, follows, and feedback with creators in your niche. Build your karma, grow your reach.
           </p>
           <div className="mt-12 flex items-center justify-center gap-6">
             <Button size="lg">Start Exchanging</Button>
-            <Button variant="outline" size="lg">View Live Lobbies</Button>
+            <Button variant="outline" size="lg" className="border-black/20 text-black hover:bg-black/5 dark:border-white/20 dark:text-white dark:hover:bg-white/10">View Live Lobbies</Button>
           </div>
         </motion.div>
       </div>
@@ -41,7 +41,7 @@ export const Hero = () => {
       {[...Array(6)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute z-10 h-16 w-16 overflow-hidden rounded-2xl border-2 border-white/10 glass shadow-2xl"
+          className="absolute z-10 h-16 w-16 overflow-hidden rounded-2xl border-2 border-black/10 dark:border-white/10 glass shadow-2xl"
           initial={{ opacity: 0, scale: 0 }}
           animate={{ 
             opacity: 1, 

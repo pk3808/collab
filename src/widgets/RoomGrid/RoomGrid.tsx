@@ -44,10 +44,10 @@ const dummyRooms = [
 export const RoomGrid = () => {
   return (
     <div className="flex flex-1 flex-col gap-6">
-      <div className="flex items-center justify-between rounded-2xl bg-white/5 p-4 glass-morphism">
-        <h2 className="text-xl font-bold text-white">Active Lobbies</h2>
+      <div className="flex items-center justify-between rounded-2xl bg-black/5 dark:bg-white/5 p-4 glass-morphism">
+        <h2 className="text-xl font-bold text-foreground">Active Lobbies</h2>
         <div className="flex gap-4">
-          <select className="rounded-xl bg-black/40 border border-white/10 px-4 py-2 text-sm text-white focus:outline-none focus:border-accent-cyan/50">
+          <select className="rounded-xl bg-white dark:bg-black/40 border border-black/10 dark:border-white/10 px-4 py-2 text-sm text-foreground focus:outline-none focus:border-accent-cyan/50">
             <option>All Niches</option>
             <option>Tech</option>
             <option>Anime</option>
