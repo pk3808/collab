@@ -4,12 +4,12 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const notes = [
-  { id: 1, side: "left",  user: "@alex_dev",      niche: "Tech",    rotate: -4, delay: 0.1,  offsetY: 0,  text: "Finally found creators who actually follow through. 3 solid code reviews in my first week." },
-  { id: 2, side: "left",  user: "@sarah_creates",  niche: "Design",  rotate: 2,  delay: 0.18, offsetY: 48, text: "Swapped thumbnail feedback for a channel review. My CTR jumped 12% the next month." },
+  { id: 1, side: "left",  user: "@alex_dev",      niche: "Tech",    rotate: -3, delay: 0.1,  offsetY: 0,  text: "Finally found creators who actually follow through. 3 solid code reviews in my first week." },
+  { id: 2, side: "left",  user: "@sarah_creates",  niche: "Design",  rotate: 2,  delay: 0.18, offsetY: 32, text: "Swapped thumbnail feedback for a channel review. My CTR jumped 12% the next month." },
   { id: 3, side: "left",  user: "@techNinja99",    niche: "Tech",    rotate: -2, delay: 0.26, offsetY: 16, text: "No fake hype, just real exchange. This is what creator communities should feel like." },
-  { id: 4, side: "right", user: "@fitlife_jo",     niche: "Fitness", rotate: 3,  delay: 0.14, offsetY: 24, text: "Traded a form-check for a design critique. Both of us got value in under 2 minutes." },
-  { id: 5, side: "right", user: "@animeweeb",      niche: "Anime",   rotate: -2, delay: 0.22, offsetY: 0,  text: "The karma system keeps people honest. Haven't had a single flake since joining." },
-  { id: 6, side: "right", user: "@designpro",      niche: "Design",  rotate: 1,  delay: 0.3,  offsetY: 56, text: "Went from 40 to 340 Dribbble followers in 3 weeks. The exchange model just works." },
+  { id: 4, side: "right", user: "@fitlife_jo",     niche: "Fitness", rotate: 3,  delay: 0.14, offsetY: 0, text: "Traded a form-check for a design critique. Both of us got value in under 2 minutes." },
+  { id: 5, side: "right", user: "@animeweeb",      niche: "Anime",   rotate: -2, delay: 0.22, offsetY: 32,  text: "The karma system keeps people honest. Haven't had a single flake since joining." },
+  { id: 6, side: "right", user: "@designpro",      niche: "Design",  rotate: 1,  delay: 0.3,  offsetY: 16, text: "Went from 40 to 340 Dribbble followers in 3 weeks. The exchange model just works." },
 ];
 
 const nicheColor: Record<string, string> = {
@@ -39,7 +39,7 @@ const NoteCard = ({ note }: { note: typeof notes[number] }) => (
     transition={{ delay: note.delay, duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
     whileHover={{ scale: 1.03, zIndex: 10 }}
     style={{ rotate: `${note.rotate}deg`, transformOrigin: "top center" }}
-    className="relative w-full cursor-default"
+    className="relative w-full cursor-default shrink-0 sm:w-72"
   >
     <Clip />
     <div
@@ -51,15 +51,15 @@ const NoteCard = ({ note }: { note: typeof notes[number] }) => (
     >
       {/* red margin line */}
       <div className="absolute left-9 top-0 h-full w-px bg-red-300/40 dark:bg-red-800/30" />
-      <p className="relative pl-2 text-[13px] leading-[1.75] text-stone-600 dark:text-stone-300 font-medium">
+      <p className="relative pl-2 text-[13px] leading-[1.75] text-stone-600 dark:text-stone-300 font-medium whitespace-normal">
         &ldquo;{note.text}&rdquo;
       </p>
       <div className="relative mt-3 pl-2 flex items-center gap-2">
-        <div className="h-5 w-5 shrink-0 rounded-full bg-gradient-to-br from-violet-500 to-cyan-400 flex items-center justify-center text-[9px] font-bold text-white">
+        <div className="h-5 w-5 shrink-0 rounded-full bg-stone-800 dark:bg-stone-200 flex items-center justify-center text-[9px] font-bold text-white dark:text-stone-900">
           {note.user[1].toUpperCase()}
         </div>
-        <span className="text-[11px] font-semibold text-stone-500 dark:text-stone-400">{note.user}</span>
-        <span className={`ml-1 rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide ${nicheColor[note.niche]}`}>
+        <span className="text-[11px] font-semibold text-stone-500 dark:text-stone-400 truncate">{note.user}</span>
+        <span className={`ml-1 rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide shrink-0 ${nicheColor[note.niche]}`}>
           {note.niche}
         </span>
       </div>
@@ -71,40 +71,43 @@ const leftNotes  = notes.filter(n => n.side === "left");
 const rightNotes = notes.filter(n => n.side === "right");
 
 export const Hero = () => (
-  <section className="relative min-h-screen w-full overflow-hidden bg-[#f5f2eb] dark:bg-[#111009] pt-16">
+  <section className="relative min-h-screen w-full overflow-hidden bg-[#f5f2eb] dark:bg-[#111009] pt-16 flex flex-col items-center">
     {/* Subtle paper texture overlay */}
     <div
       className="pointer-events-none absolute inset-0 opacity-[0.015] dark:opacity-[0.04]"
       style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E\")" }}
     />
 
-    <div className="container relative z-10 mx-auto flex min-h-[calc(100vh-64px)] items-center gap-4 px-6 py-16">
+    <div className="container relative z-10 flex min-h-[calc(100vh-64px)] w-full items-center justify-between gap-8 px-6 md:px-12 lg:px-24 py-16">
 
-      {/* LEFT notes column */}
-      <div className="hidden lg:flex w-64 xl:w-72 shrink-0 flex-col gap-8 pt-10">
+      {/* LEFT notes column (Desktop) */}
+      <div className="hidden lg:flex w-64 xl:w-72 shrink-0 flex-col gap-10">
         {leftNotes.map(n => <NoteCard key={n.id} note={n} />)}
       </div>
 
       {/* CENTER — hero copy */}
-      <div className="flex flex-1 flex-col items-center text-center">
+      <div className="flex flex-1 flex-col items-center text-center mt-[-40px]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           {/* Label */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-stone-500 dark:text-stone-400">
+          <div className="inline-flex items-center gap-2 rounded-full border border-teal-200 dark:border-teal-900/50 bg-teal-50 dark:bg-teal-900/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-teal-600 dark:text-teal-400">
             Creator Exchange
           </div>
 
           {/* Headline */}
-          <h1 className="mt-7 text-5xl font-bold leading-[1.08] tracking-tight text-stone-900 dark:text-stone-50 sm:text-6xl lg:text-[64px]">
+          <h1 className="mt-7 text-[40px] font-bold leading-[1.1] tracking-tight text-stone-900 dark:text-stone-50 sm:text-6xl lg:text-[64px]">
             Swap skills.
             <br />
             Earn karma.
             <br />
-            <span className="bg-gradient-to-r from-violet-600 to-cyan-500 bg-clip-text text-transparent">
+            <span className="relative inline-block font-serif italic font-normal text-teal-600 dark:text-teal-400">
               Grow together.
+              <svg className="absolute -bottom-1.5 left-0 w-full opacity-80" viewBox="0 0 200 9" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.00035 6.94054C54.1032 2.65651 133.722 -1.41113 198.058 6.94054" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+              </svg>
             </span>
           </h1>
 
@@ -119,7 +122,7 @@ export const Hero = () => (
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="group inline-flex items-center gap-2 rounded-full bg-stone-900 dark:bg-stone-50 px-7 py-3.5 text-sm font-semibold text-white dark:text-stone-900 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="group inline-flex items-center gap-2 rounded-full bg-teal-600 dark:bg-teal-500 px-7 py-3.5 text-sm font-bold text-white shadow-lg hover:shadow-xl hover:bg-teal-700 dark:hover:bg-teal-600 transition-all duration-300"
               >
                 Browse Live Lobbies
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -148,10 +151,19 @@ export const Hero = () => (
         </motion.div>
       </div>
 
-      {/* RIGHT notes column */}
-      <div className="hidden lg:flex w-64 xl:w-72 shrink-0 flex-col gap-8 pt-24">
+      {/* RIGHT notes column (Desktop) */}
+      <div className="hidden lg:flex w-64 xl:w-72 shrink-0 flex-col gap-10">
         {rightNotes.map(n => <NoteCard key={n.id} note={n} />)}
       </div>
+    </div>
+
+    {/* Mobile Notes Carousel */}
+    <div className="flex lg:hidden w-full overflow-x-auto pb-16 pt-8 px-6 gap-6 snap-x snap-mandatory hide-scrollbar" style={{ scrollbarWidth: 'none' }}>
+      {notes.map(n => (
+        <div key={n.id} className="snap-center w-[280px] shrink-0 pt-6">
+          <NoteCard note={{...n, offsetY: 0, rotate: n.rotate / 2}} />
+        </div>
+      ))}
     </div>
   </section>
 );

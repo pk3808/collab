@@ -13,6 +13,7 @@
   --color-accent-cyan-dim: #0891b2;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-playfair);
 }
 
 :root {
@@ -120,4 +121,30 @@
 .animate-shimmer {
   background-size: 200% auto;
   animation: shimmer 3s linear infinite;
+}
+
+/* ── Custom Scrollbar ───────────────────────────────────── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #a8a29e transparent;
+}
+
+::-webkit-scrollbar {
+  width: 18px;
+  height: 18px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #a8a29e;
+  border-radius: 9999px;
+  border: 6px solid var(--background);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #78716c;
 }
