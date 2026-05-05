@@ -16,9 +16,9 @@ export const Sidebar = () => {
         <h3 className="mb-4 text-lg font-bold text-foreground">Recent Collabs</h3>
         <div className="flex flex-col gap-4">
           {recentCollabs.map((collab) => (
-            <div key={collab.id} className="flex items-center justify-between border-b border-black/5 dark:border-white/5 pb-3 last:border-0 last:pb-0">
+            <div key={collab.id} className="flex items-center justify-between border-b border-stone-200 dark:border-stone-800 pb-3 last:border-0 last:pb-0">
               <div className="flex items-center gap-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-accent-cyan/10 dark:bg-accent-cyan/20 text-xs font-bold text-cyan-600 dark:text-accent-cyan">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-surface-raised border border-stone-200 dark:border-stone-800 text-xs font-bold text-stone-600 dark:text-stone-400">
                   {collab.name.charAt(0)}
                 </div>
                 <div className="flex flex-col">

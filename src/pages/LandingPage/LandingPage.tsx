@@ -27,7 +27,7 @@ export default function LandingPage() {
             Ready to grow{" "}
             <span className="relative inline-block font-serif italic font-normal text-stone-900 dark:text-stone-50">
               together?
-              <svg className="absolute -bottom-1.5 left-0 w-full opacity-80" viewBox="0 0 200 9" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="absolute -bottom-1.5 left-0 w-full opacity-80 text-amber-500 dark:text-amber-400" viewBox="0 0 200 9" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2.00035 6.94054C54.1032 2.65651 133.722 -1.41113 198.058 6.94054" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
               </svg>
             </span>

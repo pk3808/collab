@@ -44,16 +44,16 @@ const dummyRooms = [
 export const RoomGrid = () => {
   return (
     <div className="flex flex-1 flex-col gap-6">
-      <div className="flex items-center justify-between rounded-2xl bg-black/5 dark:bg-white/5 p-4 glass-morphism">
+      <div className="flex items-center justify-between rounded-2xl bg-surface border border-border p-4 shadow-sm">
         <h2 className="text-xl font-bold text-foreground">Active Lobbies</h2>
         <div className="flex gap-4">
-          <select className="rounded-xl bg-white dark:bg-black/40 border border-black/10 dark:border-white/10 px-4 py-2 text-sm text-foreground focus:outline-none focus:border-accent-cyan/50">
+          <select className="rounded-xl bg-surface-raised border border-border px-4 py-2 text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-stone-400">
             <option>All Niches</option>
             <option>Tech</option>
             <option>Anime</option>
             <option>Fitness</option>
           </select>
-          <Button size="sm" className="gap-2">
+          <Button size="sm" className="gap-2 bg-stone-900 dark:bg-stone-50 text-white dark:text-stone-900 hover:bg-stone-800 dark:hover:bg-white">
             <Plus className="h-4 w-4" />
             Create Room
           </Button>
