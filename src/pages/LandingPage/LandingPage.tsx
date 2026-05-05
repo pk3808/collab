@@ -25,7 +25,7 @@ export default function LandingPage() {
           </div>
           <h2 className="text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-5xl">
             Ready to grow{" "}
-            <span className="relative inline-block font-serif italic font-normal text-teal-600 dark:text-teal-400">
+            <span className="relative inline-block font-serif italic font-normal text-stone-900 dark:text-stone-50">
               together?
               <svg className="absolute -bottom-1.5 left-0 w-full opacity-80" viewBox="0 0 200 9" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2.00035 6.94054C54.1032 2.65651 133.722 -1.41113 198.058 6.94054" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
@@ -37,7 +37,7 @@ export default function LandingPage() {
           </p>
           <Link
             href="/dashboard"
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-teal-600 dark:bg-teal-500 px-8 py-4 text-base font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-teal-700 dark:hover:bg-teal-600"
+            className="mt-10 inline-flex items-center gap-2 rounded-full bg-stone-900 dark:bg-stone-50 px-8 py-4 text-base font-semibold text-white dark:text-stone-900 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
           >
             Browse Live Lobbies →
           </Link>

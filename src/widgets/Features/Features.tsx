@@ -152,7 +152,7 @@ export const Features = () => {
           </span>
           <h2 className="text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-5xl">
             Built for real
-            <span className="text-teal-600 dark:text-teal-400">
+            <span className="text-stone-900 dark:text-stone-50">
               {" "}creator growth
             </span>
           </h2>

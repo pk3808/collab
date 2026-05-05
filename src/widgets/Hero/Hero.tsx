@@ -93,7 +93,7 @@ export const Hero = () => (
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           {/* Label */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-teal-200 dark:border-teal-900/50 bg-teal-50 dark:bg-teal-900/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-teal-600 dark:text-teal-400">
+          <div className="inline-flex items-center gap-2 rounded-full border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-stone-600 dark:text-stone-400">
             Creator Exchange
           </div>
 
@@ -103,9 +103,9 @@ export const Hero = () => (
             <br />
             Earn karma.
             <br />
-            <span className="relative inline-block font-serif italic font-normal text-teal-600 dark:text-teal-400">
+            <span className="relative inline-block font-serif italic font-normal text-stone-900 dark:text-stone-50">
               Grow together.
-              <svg className="absolute -bottom-1.5 left-0 w-full opacity-80" viewBox="0 0 200 9" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="absolute -bottom-1.5 left-0 w-full opacity-80 text-amber-500 dark:text-amber-400" viewBox="0 0 200 9" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2.00035 6.94054C54.1032 2.65651 133.722 -1.41113 198.058 6.94054" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
               </svg>
             </span>
@@ -122,7 +122,7 @@ export const Hero = () => (
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="group inline-flex items-center gap-2 rounded-full bg-teal-600 dark:bg-teal-500 px-7 py-3.5 text-sm font-bold text-white shadow-lg hover:shadow-xl hover:bg-teal-700 dark:hover:bg-teal-600 transition-all duration-300"
+                className="group inline-flex items-center gap-2 rounded-full bg-stone-900 dark:bg-stone-50 px-7 py-3.5 text-sm font-semibold text-white dark:text-stone-900 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-stone-800 dark:hover:bg-white"
               >
                 Browse Live Lobbies
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
