@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CreatorHub | Peer-to-Peer Growth",
-  description: "The ultimate networking hub for creators to collaborate, exchange services, and grow together.",
+  title: "Socio — The Creator Exchange Hub",
+  description: "Swap skills, reviews, and feedback with creators in your niche. Build karma. Grow your reach together.",
 };
 
 export default function RootLayout({

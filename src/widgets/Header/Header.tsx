@@ -1,41 +1,77 @@
 "use client";
 import { Button } from "@/shared/ui/Button";
 import { ThemeToggle } from "@/shared/ui/ThemeToggle";
-import { motion } from "framer-motion";
-import { LayoutGrid } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Layers } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+
+const navLinks = [
+  { label: "Lobbies",           href: "/dashboard" },
+  { label: "Leaderboard",       href: "#" },
+  { label: "How it Works",      href: "#" },
+];
 
 export const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className="fixed top-0 z-50 w-full border-b border-black/5 dark:border-white/5 bg-background/80 backdrop-blur-xl"
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      className={`fixed top-0 z-50 w-full transition-all duration-500 ${
+        scrolled
+          ? "glass border-b border-white/[0.06] shadow-[0_1px_0_rgba(255,255,255,0.04)]"
+          : "bg-transparent"
+      }`}
     >
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-tighter">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent-purple">
-            <LayoutGrid className="h-5 w-5 text-white" />
+      <div className="container mx-auto flex h-16 items-center justify-between px-6">
+        {/* Logo */}
+        <Link
+          href="/"
+          className="flex items-center gap-2.5 text-lg font-bold tracking-tight text-foreground"
+        >
+          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-accent-purple to-accent-cyan shadow-[0_0_16px_rgba(147,51,234,0.4)]">
+            <Layers className="h-4 w-4 text-white" />
           </div>
-          CreatorHub
+          <span className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+            Socio
+          </span>
         </Link>
-        
+
+        {/* Nav */}
         <nav className="hidden items-center gap-8 md:flex">
-          <Link href="/dashboard" className="text-sm font-medium text-zinc-500 hover:text-black dark:text-zinc-400 dark:hover:text-white transition-colors">
-            Lobbies
-          </Link>
-          <Link href="#" className="text-sm font-medium text-zinc-500 hover:text-black dark:text-zinc-400 dark:hover:text-white transition-colors">
-            Karma Leaderboard
-          </Link>
-          <Link href="#" className="text-sm font-medium text-zinc-500 hover:text-black dark:text-zinc-400 dark:hover:text-white transition-colors">
-            How it Works
-          </Link>
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="text-sm font-medium text-muted transition-colors duration-200 hover:text-foreground"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
-        <div className="flex items-center gap-2 sm:gap-4">
+        {/* Actions */}
+        <div className="flex items-center gap-3">
           <ThemeToggle />
-          <Button variant="ghost" size="sm" className="hidden sm:inline-flex">Log In</Button>
-          <Button size="sm">Get Started</Button>
+          <Link href="#" className="hidden sm:block">
+            <Button variant="ghost" size="sm" className="text-muted hover:text-foreground">
+              Log In
+            </Button>
+          </Link>
+          <Link href="/dashboard">
+            <Button size="sm" className="bg-accent-purple text-white hover:bg-accent-purple-dim shadow-[0_0_20px_rgba(147,51,234,0.35)] hover:shadow-[0_0_28px_rgba(147,51,234,0.5)] transition-shadow duration-300">
+              Get Started
+            </Button>
+          </Link>
         </div>
       </div>
     </motion.header>
